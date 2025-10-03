@@ -11,7 +11,7 @@ public class GatewayConfig {
     @Bean
     public RouteLocator gatewayRouter(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route(p -> p.path("/lms/v1/auth/**").uri("lb://lms-auth-service"))
+                .route(p -> p.path("/lms/api/v1/auth/**").uri("lb://lms-auth-service"))
                 .build();
     }
 }
