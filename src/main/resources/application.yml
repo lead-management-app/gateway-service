@@ -1,4 +1,4 @@
-# 1. Default Config for Local Development
+# 1. Default config for local development.
 spring:
   application:
     name: lms-gateway-service
@@ -7,7 +7,7 @@ spring:
     import: "optional:configserver:http://localhost:9000"
     fail-fast: true
     retry:
-      initial-interval: 1000 # 1 second
+      initial-interval: 1000 # 1second
       max-interval: 5000
       max-attempts: 20
 
@@ -17,7 +17,7 @@ logging:
 
 --- # doc separator
 
-## 2. Docker Profile Configuration
+## 2. Docker profile config
 spring:
   config:
     activate:
