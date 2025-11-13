@@ -1,5 +1,29 @@
+# 1. Default Config for Local Development
 spring:
   application:
     name: lms-gateway-service
   config:
-    import: "configserver:http://localhost:9000"
+    # Use the local hostname when no profile is specified
+    import: "optional:configserver:http://localhost:9000"
+    fail-fast: true
+    retry:
+      initial-interval: 1000 # 1 second
+      max-interval: 5000
+      max-attempts: 20
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
+
+--- # doc separator
+
+## 2. Docker Profile Configuration
+spring:
+  config:
+    activate:
+      on-profile: docker
+    import: "configserver:http://config-server:9000"
+
+logging:
+  level:
+    org.springframework.cloud.config: DEBUG
